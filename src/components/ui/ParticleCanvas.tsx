@@ -16,8 +16,8 @@ export default function ParticleCanvas() {
     let animationFrameId: number;
 
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas!.width = window.innerWidth;
+      canvas!.height = window.innerHeight;
     };
 
     class Particle {
@@ -31,8 +31,8 @@ export default function ParticleCanvas() {
       growing: boolean;
 
       constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        this.x = Math.random() * canvas!.width;
+        this.y = Math.random() * canvas!.height;
         this.size = Math.random() * 2 + 0.5;
         this.speedY = -Math.random() * 0.3 - 0.1;
         this.speedX = (Math.random() - 0.5) * 0.2;
@@ -42,8 +42,8 @@ export default function ParticleCanvas() {
       }
 
       reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = canvas.height + 10;
+        this.x = Math.random() * canvas!.width;
+        this.y = canvas!.height + 10;
         this.size = Math.random() * 2 + 0.5;
         this.speedY = -Math.random() * 0.3 - 0.1;
         this.speedX = (Math.random() - 0.5) * 0.2;
@@ -58,7 +58,7 @@ export default function ParticleCanvas() {
         if (this.opacity >= 0.7) this.growing = false;
         if (this.opacity <= 0.05) this.growing = true;
 
-        if (this.y < -10 || this.x < -10 || this.x > canvas.width + 10) {
+        if (this.y < -10 || this.x < -10 || this.x > canvas!.width + 10) {
           this.reset();
         }
       }
@@ -81,7 +81,7 @@ export default function ParticleCanvas() {
     };
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, canvas!.width, canvas!.height);
       particles.forEach((p) => {
         p.update();
         p.draw();

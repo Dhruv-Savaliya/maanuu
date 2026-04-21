@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import CustomCursor from "@/components/ui/CustomCursor";
 import ParticleCanvas from "@/components/ui/ParticleCanvas";
@@ -9,17 +9,17 @@ import { Heart, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // Ultra-smooth mobile-optimized animations
-const fadeInUp = {
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30, filter: "blur(5px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 1, ease: "easeOut" } },
 };
 
-const fadeInLeft = {
+const fadeInLeft: Variants = {
   hidden: { opacity: 0, x: -30, filter: "blur(3px)" },
-  visible: { opacity: 1, x: 0, filter: "blur(0px)", transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } },
+  visible: { opacity: 1, x: 0, filter: "blur(0px)", transition: { duration: 1, ease: "easeOut" } },
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
